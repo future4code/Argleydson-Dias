@@ -66,4 +66,15 @@ let grausFemK = (77 - 32)*(5/9) + 273.15
 console.log(grausFemK, "K")
 
 let grausCemF = (80)*(9/5) + 32
-console.log(grausCemF, "F")
+console.log(grausCemF, "°F")
+
+let grausCemFtrinta = (30)*(9/5) + 32
+let grausFemKtrinta = (grausCemFtrinta - 32)*(5/9) + 273.15
+console.log(grausCemFtrinta, "°F", grausFemKtrinta, "K")
+
+let valorCelsious = Number(prompt("Digite o valor em graus Celsius para converter em Kelvin e Fahrenheit"))
+let grausCparaF = (valorCelsious)*(9/5) + 32
+let grausFparaK = (grausCparaF - 32)*(5/9) + 273.15
+console.log(grausCparaF, "°F", grausFparaK, "K")
+
+// 2-
