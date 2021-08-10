@@ -60,3 +60,10 @@
 // console.log("O primeiro numero é divisível pelo segundo?", ((primeiroNumero % segundoNumero) === 0))
 // console.log("O segundo numero é divisível pelo primeiro?", ((segundoNumero % primeiroNumero) === 0))
 
+// DESAFIO
+// 1-
+let grausFemK = (77 - 32)*(5/9) + 273.15
+console.log(grausFemK, "K")
+
+let grausCemF = (80)*(9/5) + 32
+console.log(grausCemF, "F")
