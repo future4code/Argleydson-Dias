@@ -181,7 +181,7 @@ if(tipoJogo === "DO" && etapaJogo === "SF") {
         Valor total: ${valorTotal}
     `)
 } else if(tipoJogo === "IN" && etapaJogo === "SF") {
-    let valorTotal = conversao * ((ingressoCategoriaSf[(categoria - 1)] * quantidaIngressos));
+    let valorTotal =((ingressoCategoriaSf[(categoria - 1)] * quantidaIngressos)) /  conversao;
     console.log(`
         ---Dados da compra---
         Nome do cliente: ${nomeCompleto}
@@ -190,11 +190,11 @@ if(tipoJogo === "DO" && etapaJogo === "SF") {
         Categoria: ${categoria}
         Quantidade de Ingressos: ${quantidaIngressos}
         ---Valores---
-        Valor do ingresso: R$ ${conversao * ingressoCategoriaSf[(categoria - 1)]}
+        Valor do ingresso: R$ ${ingressoCategoriaSf[(categoria - 1)] / conversao}
         Valor total: ${valorTotal}
     `)
 } else if(tipoJogo === "IN" && etapaJogo === "DT") {
-    let valorTotal = conversao * ((ingressoCategoriaDt[(categoria - 1)] * quantidaIngressos));
+    let valorTotal = ((ingressoCategoriaDt[(categoria - 1)] * quantidaIngressos)) / conversao;
     console.log(`
         ---Dados da compra---
         Nome do cliente: ${nomeCompleto}
@@ -203,11 +203,11 @@ if(tipoJogo === "DO" && etapaJogo === "SF") {
         Categoria: ${categoria}
         Quantidade de Ingressos: ${quantidaIngressos}
         ---Valores---
-        Valor do ingresso: R$ ${conversao * ingressoCategoriaDt[(categoria - 1)]}
+        Valor do ingresso: R$ ${ingressoCategoriaDt[(categoria - 1)] / conversao}
         Valor total: ${valorTotal}
     `)
 } else if(tipoJogo === "IN" && etapaJogo === "FI") {
-    let valorTotal = conversao * ((ingressoCategoriaFi[(categoria - 1)] * quantidaIngressos));
+    let valorTotal = ((ingressoCategoriaFi[(categoria - 1)] * quantidaIngressos)) / conversao;
     console.log(`
         ---Dados da compra---
         Nome do cliente: ${nomeCompleto}
@@ -216,7 +216,7 @@ if(tipoJogo === "DO" && etapaJogo === "SF") {
         Categoria: ${categoria}
         Quantidade de Ingressos: ${quantidaIngressos}
         ---Valores---
-        Valor do ingresso: R$ ${conversao * ingressoCategoriaFi[(categoria - 1)]}
+        Valor do ingresso: R$ ${ingressoCategoriaFi[(categoria - 1)] / conversao}
         Valor total: ${valorTotal}
     `)
 } else {
