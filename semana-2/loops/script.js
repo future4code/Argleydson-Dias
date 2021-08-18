@@ -8,7 +8,7 @@
 // valor vai ser 10. vai fazer um loop de 0 até um i menor que 5 e vai retornar o valor.
 // valor está somando valor + i.
 
-// 2. 
+// 2.
 // const lista = [10, 11, 12, 15, 18, 19, 21, 23, 25, 27, 30]
 // for (let numero of lista) {
 //   if (numero > 18) {
@@ -33,7 +33,7 @@
 // o resultado vão ser 4 linhas, linha1 com *, linha2 com **, linha3 com *** e linha 4 com 4*
 
 // --- Exercícios de interpretação de código
-// 1. 
+// 1.
 // let quantidadeBichinhos = Number(prompt("Quantos bichinhos você tem?"));
 
 // if(quantidadeBichinhos == 0) {
@@ -49,52 +49,82 @@
 // }
 
 // 2.
-const array = [80, 30, 130, 40, 60, 21, 70, 120, 90, 103, 110, 55]
+// const array = [80, 30, 130, 40, 60, 21, 70, 120, 90, 103, 110, 55];
 
-// a)
-for(let index of array) {
-    let valorNoIndex = index;
-    console.log(valorNoIndex);
-}
+// // a)
+// for (let index of array) {
+//   let valorNoIndex = index;
+//   console.log(valorNoIndex);
+// }
 
-// b)
-for(let index of array) {
-    let valorNoIndex = index;
-    console.log(valorNoIndex/10);
-}
+// // b)
+// for (let index of array) {
+//   let valorNoIndex = index;
+//   console.log(valorNoIndex / 10);
+// }
 
-// c)
-let arrayPar = [];
-for(let index of array) {
-    if(index % 2 == 0) {       
-        arrayPar.push(index);
-    }    
-}
-console.log(arrayPar);
+// // c)
+// const imprimePares = (arr) => {
+//   let arrayPar = [];
+//   for (let index of arr) {
+//     if (index % 2 === 0) {
+//       arrayPar.push(index);
+//     }
+//   }
+//   console.log(arrayPar);
+// };
+// imprimePares(array);
 
-// d)
-let arrayString = [];
-for(let i = 0; i < array.length; i++) {
-    arrayString.push(`O elemento do índice ${i} é o ${array[i]}`)
-}
-console.log(arrayString);
+// // d)
+// const imprimeString = (arr) => {
+//   let arrayString = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     arrayString.push(`O elemento do índice ${i} é o ${arr[i]}`);
+//   }
+//   console.log(arrayString);
+// };
+// imprimeString(array);
 
-// e)
-let maior = 0;
-for(let index of array) {
-    if(index > maior){
-        maior = index 
-    }     
-}
-// console.log(maior);
+// // e)
+// const maiorEmenor = (arr) => {
+//   let maior = 0;
+//   let menor = Infinity;
+//   for (let index of arr) {
+//     if (index > maior) {
+//       maior = index;
+//     }
+//   }
 
-let menor = 200;
-for(let index of array) {
-    if (index < menor) {
-        menor = index     
-    }
-} 
-// console.log(menor)
-console.log(`O maior é o ${maior} e o menor é ${menor}`)
+//   for (let index of arr) {
+//     if (index < menor) {
+//       menor = index;
+//     }
+//   }
+//   console.log(`O maior é o ${maior} e o menor é ${menor}`);
+// };
+// maiorEmenor(array);
 
-// --- Desafios
+//================= Desafios =====================
+// // DESAFIOS 1 e 2
+// console.log("Vamos jogar!");
+// const numeroEscolhido = Math.floor(Math.random() * 100) + 1;
+
+// let acertou = false;
+// let tentativas = 0;
+
+// let numeroChutado;
+
+// while (!acertou) {
+//   numeroChutado = Number(prompt("Chute um número"));
+//   tentativas++;
+//   console.log(`O número chutado foi: ${numeroChutado}`);
+//   if (numeroChutado === numeroEscolhido) {
+//     console.log("Acertou!");
+//     console.log(`O número de tentativas foi : ${tentativas}`);
+//     acertou = true;
+//   } else if (numeroEscolhido > numeroChutado) {
+//     console.log("Errou. O número escolhido é maior");
+//   } else {
+//     console.log("Errou. O número escolhido é menor");
+//   }
+// }
