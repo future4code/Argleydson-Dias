@@ -160,29 +160,39 @@ const pokemons = [
 // });
 // console.log(newArrayPokemons);
 
+// --- outra forma de fazer a a)
+const nomePokemons = pokemons.map((poke) => {
+  return poke.nome;
+});
+const pokemonsOrdenados = nomePokemons.sort((a, b) => a.localeCompare(b));
+console.log("item a", pokemonsOrdenados);
+
 // b) Crie um novo array apenas com os tipos dos pokémons, sem repetição
-// const tiposSemRepetir = pokemons
-//     .filter((item, index, array) => {
-//         return item.tipo
-//     })
-//     .filter((item, index, array) => {
-//     return array.indexOf(item) === index
-//     });
-// console.log(tiposSemRepetir)
-function limpaValoresRepetidos(array) {
-  for (let i in array) {
-    let valorComparado = array[i].tipo;
-    let cont = 0; //contador de incidencia de repeticao, seu valor deve ser 1
-    for (let i in array) {
-      if (valorComparado === array[i].tipo) {
-        cont += 1;
-        if (cont > 1) {
-          cont--;
-          delete array[i];
-        }
-      }
-    }
-  }
-  return array;
-}
-console.log(limpaValoresRepetidos(pokemons));
+// function limpaValoresRepetidos(array) {
+//   for (let i in array) {
+//     let valorComparado = array[i].tipo;
+//     let cont = 0; //contador de incidencia de repeticao, seu valor deve ser 1
+//     for (let i in array) {
+//       if (valorComparado === array[i].tipo) {
+//         cont += 1;
+//         if (cont > 1) {
+//           cont--;
+//           delete array[i];
+//         }
+//       }
+//     }
+//   }
+//   return array;
+// }
+// console.log(limpaValoresRepetidos(pokemons));
+
+// --- outra forma de fazer a b)
+const tipos = pokemons.map((poke) => {
+  return poke.tipo;
+});
+console.log(tipos);
+
+const tiposSemRepetir = tipos.filter((tipo, index, array) => {
+  return array.indexOf(tipo) === index;
+});
+console.log("item b", tiposSemRepetir);
