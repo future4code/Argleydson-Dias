@@ -118,6 +118,16 @@ td button {
     border-radius: 5px;
     color: black;
 }
+
+    td button:hover {
+        background-color: #e2cc6a;
+    }
+
+    td button:focus {
+        background-color: #e2cc6a;
+        color: white;
+    }
+    
  td img {
      width: 50px;
  }
