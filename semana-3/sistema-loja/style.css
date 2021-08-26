@@ -1,0 +1,45 @@
+body {
+    background-color: antiquewhite;
+}
+
+h1 {
+    background-color: black;
+    color: white;
+}
+
+/* --- cabeçalho --- */
+div.nav {
+    background-color: rgb(75, 224, 224);
+}
+
+div.info {
+    background-color: rgb(230, 97, 97);
+}
+
+div img {
+    width: 5%;
+}
+
+/* --- estoque --- */
+.tabela {
+    background-color: beige;
+} 
+
+.tabela td {
+    margin: auto;
+}
+
+.tabela img {
+    width: 80px;
+    margin-right: 5px;
+}
+
+/* --- produto --- */
+form {
+    background-color: beige;
+}
+
+/* --- funcionarios --- */
+ol {
+    background-color: beige;
+}
