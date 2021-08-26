@@ -137,6 +137,12 @@ td button {
     height: 100px;
 }
 
+div input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
 
 #back-button {
     background-color: white;
