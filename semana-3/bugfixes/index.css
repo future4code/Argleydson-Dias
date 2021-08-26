@@ -74,6 +74,12 @@ div img {
     padding: 10px;
 }
 
+#container-de-descricao>p {
+    display: block;
+    width: 19vw;
+    margin: auto;
+}
+
 #container-de-descricao>ol {
     padding: 15px 0px;
 }
