@@ -1,0 +1,152 @@
+/* RESET */
+html,
+body,
+figure,
+div,
+input,
+textarea,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+a,
+ul {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  list-style: none;
+  text-decoration: none;
+  border: none;
+  padding-inline-start: 0px;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+
+figcaption {
+  display: none;
+  /*Esconde a legenda da imagem*/
+}
+
+/* TOPO */
+/* ajustar tamanho da imagem */
+.topo .content figure img {
+  display: block;
+  width: 100%;
+  max-width: 100px;
+  height: 100px;
+}
+
+/* alinhar os elementos e mudar a cor de fundo */
+.topo .content {
+  background-color: #673ab7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* estilo dos itens do menu */
+.topo .content nav ul li {
+  text-align: center;
+  margin: 0 auto;
+  letter-spacing: 2px;
+  padding: 0 10px;
+  display: inline-block;
+}
+
+.topo .content nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  padding: 5px 8px;
+  font-size: 17px;
+}
+
+/* adicionar borda ao passar o mouse no menu */
+.topo .content nav ul li a:hover {
+  border: 2px solid #fff;
+}
+
+/* evitar que os itens da lista de movam qndo passar o mouse,
+para isso adicionamos uma borda transparente no elemento a e no 
+hover, apenas mudamos a cor da borda.*/
+.topo .content nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 8px;
+  font-size: 16px;
+  border: 2px solid transparent;
+}
+
+.topo .content nav ul li a:hover {
+  border-color: #fff;
+}
+
+/* MEIO */
+.meio {
+  background-color: #b73a6a;
+}
+
+.meio-content {
+  padding: 40px 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.meio-content figure {
+  padding: 0px 0px;
+  padding-top: 20px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.meio-content h3 p {
+  padding: 20px 0px;
+  text-align: left;
+}
+
+.meio-content h3 {
+  padding: 5px 0px;
+  text-align: left;
+}
+
+/* ABAIXO */
+.abaixo {
+  background-color: rgb(161, 127, 255);
+}
+
+.imagensDebaixo ul {
+  padding: 20px 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.imagensDebaixo ul li figure {
+  padding: 10px 0px;
+}
+
+.imagensDebaixo ul li h3 {
+  text-align: left;
+}
+
+/* FOOTER */
+/* estilizar o copyright */
+.footer-copyright {
+  height: 50px;
+  line-height: 50px;
+  width: 100%;
+  text-align: center;
+  background: rgb(38 121 195);
+}
+
+.footer-copyright span {
+  color: rgba(255, 255, 255, 0.6);
+}
+
