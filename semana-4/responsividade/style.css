@@ -6,7 +6,7 @@
 }
 
 body {
-  /* height: 100vh; */
+  height: 100vh;
 }
 
 .cabecalho {
@@ -108,7 +108,7 @@ footer {
   color: aliceblue;  
 }
 
-@media screen and (max-device-width: 601px) {
+@media screen and (max-device-width: 667px) {
 
   .cabecalho {
     justify-content: space-around;
