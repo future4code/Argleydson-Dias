@@ -1,17 +1,22 @@
 import React from 'react';
-import './App.css';
+// import './App.css';
 import CardGrande from './components/CardGrande/CardGrande';
 import ImagemButton from './components/ImagemButton/ImagemButton';
 import ProfileImage from './components/img/profileimage.jpg'
 import OutSystems from './components/img/outsystems.png'
 import CardPequeno from './components/CardPequeno/CardPequeno';
 
+// --- styled --- //
+import GlobalStyle from './styles/global';
+import AppStyled from './styles/AppBody';
+import PageSectionContainer from './styles/PageSectionContainer';
 
 
 function App() {
   return (
-    <div className="App">
-      <div className="page-section-container">
+    <AppStyled>
+      <GlobalStyle />
+      <PageSectionContainer>
         <h2>Dados pessoais</h2>
         <CardGrande
           imagem={ProfileImage}
@@ -23,9 +28,9 @@ function App() {
           imagem="https://image.flaticon.com/icons/png/512/117/117472.png"
           texto="Ver mais"
         />
-      </div>
+      </PageSectionContainer>
 
-      <div className="page-section-container">
+      <PageSectionContainer>
         <h2>Experiências profissionais</h2>
         <CardGrande
           imagem="https://s3.amazonaws.com/future4.com.br/static/headf4-c492117ca2373dc85ca81bf715b3dc2a.png"
@@ -44,9 +49,9 @@ function App() {
           nome="OutSystems"
           descricao="Estudei a plataforma no período de Agosto à Dezembro de 2020"
         />
-      </div>
+      </PageSectionContainer>
 
-      <div className="page-section-container">
+      <PageSectionContainer>
         <h2>Minhas redes sociais</h2>
         <ImagemButton
           imagem="https://d2v9ipibika81v.cloudfront.net/uploads/sites/261/2017/01/facebook-logo-3.png"
@@ -57,16 +62,17 @@ function App() {
           imagem="https://logodownload.org/wp-content/uploads/2014/09/twitter-logo-1-1.png"
           texto="Twitter"
         />
-      </div>
+      </PageSectionContainer>
 
-      <div className="page-section-container">
+      <PageSectionContainer>
         <h2>Contato</h2>
         <CardPequeno
           email="argleydson@gmail.com"
           endereco="Brasil"
         />
-      </div>
-    </div>
+      </PageSectionContainer>
+
+    </AppStyled>
   );
 }
 
