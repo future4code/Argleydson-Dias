@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import {IconeComContador} from '../IconeComContador/IconeComContador'
+import { IconeComContador } from '../IconeComContador/IconeComContador'
 
 import iconeCoracaoBranco from '../../img/favorite-white.svg'
 import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
-import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
+import { SecaoComentario } from '../SecaoComentario/SecaoComentario'
 
 const PostContainer = styled.div`
   border: 1px solid gray;
@@ -49,7 +49,17 @@ class Post extends React.Component {
   }
 
   onClickCurtida = () => {
-    console.log('Curtiu!')
+    if (this.state.curtido === false) {
+      this.setState({
+        curtido: !this.state.curtido,
+        numeroCurtidas: this.state.numeroCurtidas + 1
+      })
+    } else {
+      this.setState({
+        curtido: !this.state.curtido,
+        numeroCurtidas: this.state.numeroCurtidas - 1
+      })
+    }
   }
 
   onClickComentario = () => {
@@ -68,7 +78,7 @@ class Post extends React.Component {
   render() {
     let iconeCurtida
 
-    if(this.state.curtido) {
+    if (this.state.curtido) {
       iconeCurtida = iconeCoracaoPreto
     } else {
       iconeCurtida = iconeCoracaoBranco
@@ -76,17 +86,17 @@ class Post extends React.Component {
 
     let componenteComentario
 
-    if(this.state.comentando) {
-      componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
+    if (this.state.comentando) {
+      componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario} />
     }
 
     return <PostContainer>
       <PostHeader>
-        <UserPhoto src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
+        <UserPhoto src={this.props.fotoUsuario} alt={'Imagem do usuario'} />
         <p>{this.props.nomeUsuario}</p>
       </PostHeader>
 
-      <PostPhoto src={this.props.fotoPost} alt={'Imagem do post'}/>
+      <PostPhoto src={this.props.fotoPost} alt={'Imagem do post'} />
 
       <PostFooter>
         <IconeComContador
