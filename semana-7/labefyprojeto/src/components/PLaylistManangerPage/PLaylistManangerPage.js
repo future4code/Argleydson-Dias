@@ -1,7 +1,8 @@
 import React from "react";
 import { PLaylistManangerPageContainer } from "../../style";
-import Playlists from "../Playlists";
-import PlaylistDetail from "../PlalistDetail";
+import Playlists from "../Playlists/Playlists";
+import PlaylistDetail from "../PlaylistDetail/PlaylistDetail";
+
 
 export default class PLaylistManangerPage extends React.Component {
     state = {

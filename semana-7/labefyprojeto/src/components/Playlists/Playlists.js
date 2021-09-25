@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import axios from "axios"
-import PlaylistCard from "../PlaylistCard";
+import PlaylistCard from "../PlaylistCard/PlaylistCard";
 import { baseUrl, axiosConfig } from "../../constants";
 
 const PlaylistsContainer = styled.div`
@@ -10,7 +10,7 @@ const PlaylistsContainer = styled.div`
     align-items: center;
 `
 
-class Playlists extends React.Component {
+export default class Playlists extends React.Component {
     state = {
         playlists: []
     }
@@ -21,7 +21,7 @@ class Playlists extends React.Component {
 
     fetchPlaylists = () => {
         axios.get(baseUrl, axiosConfig).then(response => {
-            this.setState({playlists: response.data.result.list})
+            this.setState({ playlists: response.data.result.list })
         }).catch(err => {
             console.log(err)
         })
@@ -35,9 +35,9 @@ class Playlists extends React.Component {
         });
     };
 
-    render () {
+    render() {
         const playlists = this.state.playlists.map(playlist => {
-            return <PlaylistCard 
+            return <PlaylistCard
                 key={playlist.id}
                 changePage={this.props.changePage}
                 name={playlist.name}
@@ -54,4 +54,3 @@ class Playlists extends React.Component {
     };
 };
 
-export default Playlists

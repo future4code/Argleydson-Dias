@@ -23,7 +23,7 @@ const TrackCreationForm = styled.form`
     }
 `
 
-class PlaylistDetail extends React.Component {
+export default class PlaylistDetail extends React.Component {
     state = {
         tracks: [],
         trackName: "",
@@ -37,7 +37,7 @@ class PlaylistDetail extends React.Component {
 
     fetchTracks = () => {
         axios.get(`${baseUrl}/${this.props.playlistId}/tracks`, axiosConfig).then(response => {
-            this.setState({tracks: response.data.result.tracks})
+            this.setState({ tracks: response.data.result.tracks })
         }).catch(err => {
             console.log(err)
         });
@@ -52,7 +52,7 @@ class PlaylistDetail extends React.Component {
     };
 
     changeInputValues = (e) => {
-        this.setState({[e.target.name]: e.target.value})
+        this.setState({ [e.target.name]: e.target.value })
     };
 
     addTrackToPlaylist = (e) => {
@@ -79,9 +79,9 @@ class PlaylistDetail extends React.Component {
         })
     };
 
-    render () {
+    render() {
         const tracks = this.state.tracks.map(track => {
-            return <TrackCard 
+            return <TrackCard
                 key={track.id}
                 trackName={track.name}
                 artist={track.artist}
@@ -96,7 +96,7 @@ class PlaylistDetail extends React.Component {
                 <TrackCreationForm onSubmit={this.addTrackToPlaylist} >
                     <div>
                         <label>Nome da música:</label>
-                        <input 
+                        <input
                             placeholder="Nome da música"
                             name="trackName"
                             value={this.state.trackName}
@@ -105,7 +105,7 @@ class PlaylistDetail extends React.Component {
                     </div>
                     <div>
                         <label>Artista:</label>
-                        <input 
+                        <input
                             placeholder="Nome do Artista"
                             name="artist"
                             value={this.state.artist}
@@ -114,7 +114,7 @@ class PlaylistDetail extends React.Component {
                     </div>
                     <div>
                         <label>URL da música:</label>
-                        <input 
+                        <input
                             placeholder="URL da música"
                             name="url"
                             value={this.state.url}
@@ -130,4 +130,3 @@ class PlaylistDetail extends React.Component {
     };
 };
 
-export default PlaylistDetail
