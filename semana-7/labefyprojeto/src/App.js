@@ -1,35 +1,49 @@
 import React from 'react';
 import axios from 'axios';
 import { GlobalStyle } from "./globalStyles";
-import { Container, Footer, Header, Main } from './style';
+import Header from './components/Header/Header';
+import { Container, Footer } from './style';
+import PLaylistCreationForm from './components/PLaylistCreationForm/PLaylistCreationForm';
+import PLaylistManangerPage from './components/PLaylistManangerPage/PLaylistManangerPage';
 
 
-function App() {
-  return (
-    <div className="App">
-      <GlobalStyle />
-      <Container>
 
-        <Header>
-          <h1>Labefy</h1>
-          <nav>
-            <a href="/">Playlists</a>
-            <a href="/">Favoritas</a>
-            <a href="/">Criar playlist</a>
-          </nav>          
-        </Header>
+export default class App extends React.Component {
+  state = {
+    currentPage: "playlistManangerPage"
+  }
 
-        <Main>
-         Hello
-        </Main>
+    changePage = (currentPage) => {
+      this.setState({currentPage: currentPage})
+    }
 
-        <Footer>
-          Atendimento
-        </Footer>
 
-      </Container>
-    </div>
-  );
+  render() {
+    
+    const renderCurrentPage = () => {
+      if (this.state.currentPage === "playlistCreationForm") {
+        return <PLaylistCreationForm />
+      } else if (this.state.currentPage === "playlistManangerPage") {
+        return <PLaylistManangerPage />
+      }
+    }
+
+
+    return (
+      <div className="App">
+        <GlobalStyle />
+        <Container>
+          <Header 
+            changePage={this.changePage}
+          />
+          {renderCurrentPage()}
+          <Footer>
+            Atendimento
+          </Footer>
+        </Container>
+      </div>
+    );
+  }
 }
 
-export default App;
+
