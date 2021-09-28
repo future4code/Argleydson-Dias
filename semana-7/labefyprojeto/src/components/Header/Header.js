@@ -5,8 +5,7 @@ const Header = (props) => {
     return(
         <HeaderContainer>
           <h1>Labefy</h1>
-          <nav>
-            <button>Playlists</button>
+          <nav>            
             <button onClick={() => props.changePage("playlistCreationForm")}>Criar PLaylist</button>
             <button onClick={() => props.changePage("playlistManangerPage")}>Gerenciar playlist</button>           
           </nav>          

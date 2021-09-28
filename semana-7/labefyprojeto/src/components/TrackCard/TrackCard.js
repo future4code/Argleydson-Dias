@@ -23,7 +23,11 @@ const ArtistContainer = styled.p`
 `
 
 const DeleteButton = styled.p`
-    color: red;
+    margin: 8px;
+    padding: 8px ;   
+    color: red;            
+    box-shadow: 0 0 20px red;
+    border-radius: 5px; 
 `
 
 const TrackCard = (props) => {
