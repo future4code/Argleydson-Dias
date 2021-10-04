@@ -10,8 +10,26 @@ import iconeComentario from '../../img/comment_icon.svg'
 
 const Post = (props) => {
 
+  const [curtido, setCurtido] = useState(false)
+  // Dentro do array, primeiro, vem a variável curtido, que vai guardar
+  // o valor do estado inicial. Depois, em segundo, vem a função que será 
+  // usada para mudar o valor de curtido, quando quisermos. Ela equivale à
+  // função this.setState para a propriedade curtido do estado. 
+  // Além disso, o valor que é passado dentro do Hook useState (false) 
+  // representa o valor do Estado Inicial. 
+  const [numeroCurtidas, setNumeroCurtidas] = useState(0)
+  const [comentando, setComentando] = useState(false)
+  const [numeroComentarios, setNumeroComentarios] = useState(0)
+  const [comentarios, setComentarios] = useState([])
 
   const onClickCurtida = () => {
+    if (curtido) {
+      setCurtido(!curtido)
+      setNumeroCurtidas(numeroCurtidas - 1)
+    } else {
+      setCurtido(!curtido)
+      setNumeroCurtidas(numeroCurtidas + 1)
+    }
   };
 
   const onClickComentario = () => {
@@ -20,26 +38,28 @@ const Post = (props) => {
   const enviarComentario = (comentario) => {
   }
 
+  const iconeCurtida = curtido ? (iconeCoracaoPreto) : (iconeCoracaoBranco)
+  
   return (
     <PostContainer>
       <PostHeader>
-        <UserPhoto src={props.fotoUsuario} alt={'Imagem do usuario'}/>
+        <UserPhoto src={props.fotoUsuario} alt={'Imagem do usuario'} />
         <p>{props.nomeUsuario}</p>
       </PostHeader>
 
-      <PostPhoto src={props.fotoPost} alt={'Imagem do post'}/>
+      <PostPhoto src={props.fotoPost} alt={'Imagem do post'} />
 
       <PostFooter>
         <IconeComContador
-          // icone={iconeCurtida}
+          icone={iconeCurtida}
           onClickIcone={onClickCurtida}
-          // valorContador={numeroCurtidas}
+        // valorContador={numeroCurtidas}
         />
 
         <IconeComContador
           icone={iconeComentario}
           onClickIcone={onClickComentario}
-          // valorContador={numeroComentarios}
+        // valorContador={numeroComentarios}
         />
       </PostFooter>
       {/* {caixaDeComentario} */}
