@@ -112,13 +112,7 @@ export default function App() {
           />
         );
         default: // deixar matchs para poder limpar a lista se der erro
-          return (
-            <Matches
-              page={changePage}
-              matches={matches}
-              clear={clearMatches}
-            />
-          );
+          return "matches"
     }
   };
 
