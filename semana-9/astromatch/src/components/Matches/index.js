@@ -7,10 +7,10 @@ import {
   ButtonClear,
   Container,
   HeaderContainer,
-  ImgLogo,
-  MatchContainer,
+  ImgLogo, 
   MatchesContainer,
-  OutsideMatchContainer
+  MatchListContainer,  
+  OutsideMatchListContainer
 } from "./styles";
 
 export default function Matches(props) {
@@ -30,16 +30,16 @@ export default function Matches(props) {
           </ButtonClear>
         </HeaderContainer>
 
-        <OutsideMatchContainer>
+        <OutsideMatchListContainer>
           {props.matches && props.matches.map((match) => {
             return (
-              <MatchContainer>
+              <MatchListContainer>
                 <img src={match.photo} />
                 <p> {match.name}</p>
-              </MatchContainer>
+              </MatchListContainer>
             );
           })}
-        </OutsideMatchContainer>
+        </OutsideMatchListContainer>
 
       </MatchesContainer>
     </Container>

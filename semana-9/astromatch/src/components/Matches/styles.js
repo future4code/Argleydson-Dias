@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Cupido from "../assets/urso.gif"
 
 export const Container = styled.div`
   width: 100vw;
@@ -7,21 +8,19 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  box-sizing: border-box; 
+  background-image: url(${Cupido})  
 `;
 
 export const MatchesContainer = styled.div`
   border: 1px solid #9c27b0;
-  display: flex;
   width: 400px;
   height: 590px;
-  display: flex;
+  display: flex;    
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  box-sizing: border-box;
   border-radius: 20px;
-  background-color: #FFFF;
+  // background-color: #FFFF;  
 `;
 
 export const HeaderContainer = styled.div`
@@ -29,11 +28,10 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  box-sizing: border-box;
   height: 50px;  
   margin: 8px;
   border-bottom: 1px solid #9c27b0;   
-  border-radius: 50px / 0px;
+  border-radius: 50px / 0px;    
 `;
 
 export const ImgLogo = styled.img`
@@ -43,30 +41,32 @@ export const ImgLogo = styled.img`
 export const ButtonBackProfile = styled.button`
   outline-style: none;
   border: none;
-  background-color: white;
+  background-color:  transparent;
   cursor: pointer;     
   border-radius: 50px; 
+  padding: 8px;
 `;
 
 export const ButtonClear = styled.button`
   border: none;  
   cursor: pointer;  
   border-radius: 50px;
-  background-color: white;   
+  background-color:  transparent;  
+  padding: 8px;
   
   img {
     width: 45px;
   }
 `;
 
-export const OutsideMatchContainer = styled.div`
+export const OutsideMatchListContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 100%;  
+  width: 100%;    
 `;
 
-export const MatchContainer = styled.div`
+export const MatchListContainer = styled.div`
   display: flex;
   align-items: center;
   margin: 8px;
@@ -80,6 +80,6 @@ export const MatchContainer = styled.div`
   p {
     color: #f73378;
     margin-left: 20px;
-    font-size: 20px;
+    font-size: 20px;    
   }
 `;

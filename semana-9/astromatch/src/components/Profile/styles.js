@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Cupido from "../assets/urso.gif"
 
 export const Container = styled.div`  
   width: 100vw;
@@ -7,7 +8,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  box-sizing: border-box;  
+  background-image: url(${Cupido})  
 `;
 
 export const ProfileContainer = styled.div`  
@@ -25,8 +26,7 @@ export const HeaderContainer = styled.div`
   align-self: flex-start;  
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  box-sizing: border-box;
+  width: 100%;  
   height: 50px;  
   margin: 8px;
   border-bottom: 1px solid lightgrey;
@@ -56,8 +56,20 @@ export const ButtonClear = styled.button`
 `;
 
 export const ProfilePhoto = styled.div`
-  width: 350px;  
-  height: 420px;
+  width: 300px;  
+  height: 400px;
+  background-image: url(${(props) => props.photo});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;    
+  background-size: 100%;
+  position: absolute;  
+  border-radius: 20px;   
+`;
+
+export const ProfilePhotoFundo = styled.div`
+  width: 360px;  
+  height: 430px;
   background-image: url(${(props) => props.photo});
   background-position: center;
   background-repeat: no-repeat;
@@ -65,6 +77,7 @@ export const ProfilePhoto = styled.div`
   background-size: 100%;
   position: absolute;  
   border-radius: 20px;  
+  filter: blur(10px);
 `;
 
 export const InformationContainer = styled.div`
@@ -81,7 +94,7 @@ export const InformationContainer = styled.div`
 
   p {
       margin-top: 90px;
-      background-color: #f73378;
+      background-color: #9c27b0;
     }
   }
 `;

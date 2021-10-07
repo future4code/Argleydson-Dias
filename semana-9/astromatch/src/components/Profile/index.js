@@ -11,7 +11,8 @@ import {
   ImgLogo,
   InformationContainer,
   ProfileContainer,
-  ProfilePhoto
+  ProfilePhoto,
+  ProfilePhotoFundo
 } from "./styles";
 import Logo from "../assets/logoTitle.png"
 import Vassoura from "../assets/vassoura.gif"
@@ -33,7 +34,8 @@ export default function Profile(props) {
           </ButtonPeople>
         </HeaderContainer>
 
-        <ProfilePhoto photo={props.photo} />
+        <ProfilePhotoFundo photo={props.photo} />
+        <ProfilePhoto photo={props.photo} />        
 
         <InformationContainer>
           <div>
@@ -46,11 +48,11 @@ export default function Profile(props) {
 
         <ButtonContainer>
           <button
-            onClick={() => { props.notChoosenPerson(); }}>
+            onClick={() => { props.notChoosenPerson(false); }}>
             <ClearIcon color="primary" fontSize="large" />
           </button>
           <button
-            onClick={() => { props.choosenPerson() }}>
+            onClick={() => { props.choosenPerson(true) }}>
             <FavoriteIcon color="secondary" />
           </button>
         </ButtonContainer>
