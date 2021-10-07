@@ -3,36 +3,37 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ClearIcon from "@material-ui/icons/Clear";
 import PeopleIcon from "@material-ui/icons/People";
 import {
+  ButtonClear,
   ButtonContainer,
+  ButtonPeople,
   Container,
   HeaderContainer,
+  ImgLogo,
   InformationContainer,
   ProfileContainer,
-  ProfilePrimary,
-  ProfileSecondary
+  ProfilePhoto
 } from "./styles";
+import Logo from "../assets/logoTitle.png"
+import Vassoura from "../assets/vassoura.gif"
 
-export const Profile = (props) => {
+export default function Profile(props) {
   return (
     <Container>
       <ProfileContainer>
+
         <HeaderContainer>
-          <p>
-            <span>astro</span>match
-          </p>
-          <p>
-            <button
-              onClick={() => {
-                props.page("matches");
-              }}
-            >
-              <PeopleIcon color="secondary" fontSize="large" />
-            </button>
-          </p>
+          <ButtonClear onClick={() => { props.clear() }}>
+            <img src={Vassoura} />
+          </ButtonClear>
+
+          <ImgLogo src={Logo} />
+
+          <ButtonPeople onClick={() => { props.page("matches") }}>
+            <PeopleIcon color="secondary" fontSize="large" />
+          </ButtonPeople>
         </HeaderContainer>
 
-        <ProfilePrimary photo={props.photo} />
-        <ProfileSecondary photo={props.photo} />
+        <ProfilePhoto photo={props.photo} />
 
         <InformationContainer>
           <div>
@@ -45,22 +46,17 @@ export const Profile = (props) => {
 
         <ButtonContainer>
           <button
-            onClick={() => {
-              props.notChoosenPerson();
-            }}
-          >
+            onClick={() => { props.notChoosenPerson(); }}>
             <ClearIcon color="primary" fontSize="large" />
           </button>
           <button
-            onClick={() => {
-              props.choosenPerson();
-            }}
-          >
+            onClick={() => { props.choosenPerson() }}>
             <FavoriteIcon color="secondary" />
           </button>
         </ButtonContainer>
+
       </ProfileContainer>
     </Container>
   );
 };
-export default Profile;
+

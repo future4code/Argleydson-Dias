@@ -13,9 +13,8 @@ export default function App() {
   useEffect(() => {
     getProfile();
   }, [choosen]);
-  //choosen
 
- const getProfile = () => {
+  const getProfile = () => {
     axios
       .get(`${url}/person`)
       .then((res) => {
@@ -27,9 +26,8 @@ export default function App() {
   useEffect(() => {
     getMatches();
   }, []);
-  //vazio
 
- const getMatches = () => {
+  const getMatches = () => {
     axios
       .get(`${url}/matches`)
       .then((res) => {
@@ -41,8 +39,7 @@ export default function App() {
 
   useEffect(() => {
     choosePerson();
-  }, [matches]); 
-  //matches
+  }, [matches]);
 
   const choosePerson = () => {
     const body = {
@@ -53,9 +50,8 @@ export default function App() {
     axios
       .post(`${url}/choose-person`, body)
       .then((res) => { })
-      .catch((err) => { });      
+      .catch((err) => { });
   };
-  // console.log(choosePerson)
 
   // botões de escolher e não escolher o perfil
   const choosenPerson = () => {
@@ -66,12 +62,11 @@ export default function App() {
     setChoosen(!choosen);
   };
 
-  
   const changePage = (page) => {
     setPage(page);
   };
 
- 
+
   // Limpar os matches
   const clearMatches = () => {
     axios
@@ -85,21 +80,20 @@ export default function App() {
       });
   };
 
-
   const renderPage = (page) => {
     switch (page) {
       case "profile":
         return (
           profile && (
             <Profile
+              clear={clearMatches}
+              page={changePage}
+              photo={profile.photo}
               name={profile.name}
               age={profile.age}
               bio={profile.bio}
-              photo={profile.photo}
-              choosenPerson={choosenPerson}
-              notChoosenPerson={notChoosenPerson}
-              choosePerson={choosePerson}
-              page={changePage}
+              notChoosenPerson={notChoosenPerson}              
+              choosenPerson={choosenPerson} 
             />
           )
         );
@@ -107,16 +101,14 @@ export default function App() {
         return (
           <Matches
             page={changePage}
-            matches={matches}
             clear={clearMatches}
+            matches={matches}            
           />
         );
-        default: // deixar matchs para poder limpar a lista se der erro
-          return "matches"
+      default:
+        return "profile"
     }
   };
-
- 
 
   return (
     <div>
