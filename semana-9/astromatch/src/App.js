@@ -33,8 +33,9 @@ export default function App() {
       .post(`${url}/choose-person`, body)
       .then((res) => {
         getProfile();
-        if (res.data.isMatch === true) {          
+        if (res.data.isMatch === true) {
           alert(`Deu Match! Você já pode conversar com ${profile.name}!`);
+          
         }
       })
       .catch((err) => {
@@ -44,7 +45,8 @@ export default function App() {
 
   //mostrar a lista de matches
   const [matches, setMatches] = useState([]); //objeto, por isso []
-    useEffect(() => {
+
+  useEffect(() => {
     getMatches();
   }, [matches]);// matches aqui para atualizar a página da lista de matches
 
@@ -88,7 +90,7 @@ export default function App() {
             <Profile
               clear={clearMatches}
               page={changePage}
-              badgeContent={matches.length}
+              matches={matches} // para o Badge
               photo={profile.photo}
               name={profile.name}
               age={profile.age}

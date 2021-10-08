@@ -14,13 +14,21 @@ export const Container = styled.div`
 export const MatchesContainer = styled.div`
   border: 1px solid #9c27b0;
   width: 400px;
-  height: 590px;
+  height:600px;
   display: flex;    
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  border-radius: 20px;    
-`;
+  border-radius: 20px;  
+  padding: 10px;    
+  background: rgb(72,164,152);
+  background: linear-gradient(214deg, rgba(72,164,152,1) 0%, rgba(61,199,181,1) 19%, rgba(140,214,205,1) 66%);
+
+  @media(max-width:600px){
+    height: 450px;
+    width: 300px; 
+  }
+  `;
 
 export const HeaderContainer = styled.div`
   display: flex;    
@@ -28,14 +36,17 @@ export const HeaderContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 50px;    
-  padding: 8px;
-  border-bottom: 1px solid #9c27b0;   
+  padding: 8px 8 0;    
   border-radius: 50px / 0px;    
 `;
 
 export const ImgLogo = styled.img`
   border-radius: 50px;
-  width: 150px;     
+  width: 150px;  
+  
+  @media(max-width:600px){
+    width: 110px;
+  }
 `
 export const ButtonBackProfile = styled.button`
   display: flex;
@@ -43,9 +54,9 @@ export const ButtonBackProfile = styled.button`
   justify-content: center;
   outline-style: none;
   border: none;
-  background-color:  transparent;
+  background-color: transparent;
   cursor: pointer;     
-  border-radius: 50px;   
+  border-radius: 50px;    
 
   :hover {
     background-color: rgba(72, 164, 152, 0.6);
@@ -62,7 +73,7 @@ export const ButtonClear = styled.button`
   border: none;  
   cursor: pointer;  
   border-radius: 50px;
-  background-color:  transparent;   
+  background-color: transparent;   
  
   :hover {
     background-color: rgba(72, 164, 152, 0.6);
@@ -94,7 +105,11 @@ export const MatchListContainer = styled.div`
   p {
     color: #f73378;
     margin-left: 20px;
-    font-size: 20px;    
+    font-size: 20px; 
+    
+    @media(max-width:600px){
+      font-size: 16px;
+    }
   }
 
   :hover{
@@ -105,7 +120,12 @@ export const MatchListContainer = styled.div`
 export const ImgPhotoList = styled.img`
   width: 50px;
   height: 50px;    
-  border-radius: 60px;
+  border-radius: 50px;
+
+  @media(max-width:600px){
+    width: 40px;
+    height: 40px;
+  }
 `
 
 export const HeartContainer = styled.h4 `
@@ -115,6 +135,10 @@ export const HeartContainer = styled.h4 `
   text-align: center;
   background-color: #ffff;
   width: 100%;
+
+  @media(max-width:600px){
+    font-size: 15px;
+  }
 `
 
 export const Photo = styled.img `    

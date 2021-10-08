@@ -18,11 +18,11 @@ import {
   NotChoosenPersonButton,
   ProfileContainer,
   ProfilePhoto,
+  ProfilePhotoBg,
   ProfilePhotoFundo
 } from "./styles";
 
-export default function Profile(props) {  
-  console.log(props)
+export default function Profile(props) {    
   return (
     <Container>
       <ProfileContainer>
@@ -34,14 +34,14 @@ export default function Profile(props) {
 
           <ImgLogo src={Logo} />
 
-          <Badge badgeContent={props.length} color="secondary">            
+          <Badge badgeContent={props.matches.length} color="secondary">            
             <ButtonPeople onClick={() => { props.page("matches") }}>
               <PeopleIcon color="secondary" fontSize="large" />
             </ButtonPeople>
           </Badge>
         </HeaderContainer>
 
-        <ProfilePhotoFundo photo={props.photo} />
+        <ProfilePhotoBg photo={props.photo} />
         <ProfilePhoto photo={props.photo} />
 
         <InformationContainer>
