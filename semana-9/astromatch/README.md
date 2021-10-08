@@ -1,6 +1,9 @@
 <!-- PROJECT SHIELDS -->
 
 <!-- PROJECT LOGO -->
+<p align="center">
+  <img src="./components/assets/logoTitle.png" alt="Logo Astromatch"/>
+</p>
 
 <p align="center">
 
