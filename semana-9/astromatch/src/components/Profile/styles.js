@@ -188,3 +188,5 @@ export const ChoosenPersonButton = styled.button`
     transition: all 0.3s ease 0s;
   }
 `
+
+

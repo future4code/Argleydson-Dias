@@ -18,11 +18,11 @@ import {
   NotChoosenPersonButton,
   ProfileContainer,
   ProfilePhoto,
-  ProfilePhotoBg,
-  ProfilePhotoFundo
+  ProfilePhotoBg
 } from "./styles";
 
-export default function Profile(props) {    
+export default function Profile(props) {  
+  console.log(props)  
   return (
     <Container>
       <ProfileContainer>
