@@ -2,6 +2,7 @@ import React from "react";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ClearIcon from "@material-ui/icons/Clear";
 import PeopleIcon from "@material-ui/icons/People";
+import Badge from '@material-ui/core/Badge';
 import Logo from "../assets/logoTitle.png";
 import Vassoura from "../assets/vassoura.gif";
 import {
@@ -20,7 +21,8 @@ import {
   ProfilePhotoFundo
 } from "./styles";
 
-export default function Profile(props) {
+export default function Profile(props) {  
+  console.log(props)
   return (
     <Container>
       <ProfileContainer>
@@ -31,14 +33,16 @@ export default function Profile(props) {
           </ButtonClear>
 
           <ImgLogo src={Logo} />
-        
-          <ButtonPeople onClick={() => { props.page("matches") }}>
-            <PeopleIcon color="secondary" fontSize="large" />
-          </ButtonPeople>
+
+          <Badge badgeContent={props.length} color="secondary">            
+            <ButtonPeople onClick={() => { props.page("matches") }}>
+              <PeopleIcon color="secondary" fontSize="large" />
+            </ButtonPeople>
+          </Badge>
         </HeaderContainer>
 
         <ProfilePhotoFundo photo={props.photo} />
-        <ProfilePhoto photo={props.photo} />        
+        <ProfilePhoto photo={props.photo} />
 
         <InformationContainer>
           <div>

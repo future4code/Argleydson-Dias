@@ -44,8 +44,7 @@ export default function App() {
 
   //mostrar a lista de matches
   const [matches, setMatches] = useState([]); //objeto, por isso []
-
-  useEffect(() => {
+    useEffect(() => {
     getMatches();
   }, [matches]);// matches aqui para atualizar a página da lista de matches
 
@@ -89,6 +88,7 @@ export default function App() {
             <Profile
               clear={clearMatches}
               page={changePage}
+              badgeContent={matches.length}
               photo={profile.photo}
               name={profile.name}
               age={profile.age}
