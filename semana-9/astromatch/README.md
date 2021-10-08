@@ -6,7 +6,6 @@
 </p>
 
 <p align="center">
-
   <h1 align='center'>Astromatch </h1>
 </p>
 
