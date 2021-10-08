@@ -7,13 +7,7 @@ import { GlobalStyle } from "./styles.js";
 
 export default function App() {
   const [profile, setProfile] = useState({});
-  // const [choosen, setChoosen] = useState(false);
-  // const [choosen, setChoosen] = useState(false);
 
-  //mostrar os perfis que podem dar matches
-  // useEffect(() => {
-  //   getProfile();
-  // }, [choosen]);
   useEffect(() => {
     getProfile();
   }, []);
@@ -29,69 +23,28 @@ export default function App() {
       });
   };
 
-  //se eu der like tem que ver se o usuario tb deu like
-  // const choosePerson = () => {
-  //   const body = {
-  //     id: profile.id,
-  //     choice: choosen,
-  //   };
-
-  //   axios
-  //     .post(`${url}/choose-person`, body)
-  //     .then((res) => { })
-  //     .catch((err) => { });
-  // };
-
-  // useEffect(() => {
-  //   choosePerson();
-  // }, [matches]);
-  const choosePerson = (value) => {
+  //se eu der like tem que ver se o usuario tb deu like 
+  const choosePerson = (userChoice) => {
     const body = {
       id: profile.id,
-      choice: value,
+      choice: userChoice,
     };
     axios
       .post(`${url}/choose-person`, body)
       .then((res) => {
         getProfile();
-        if (res.data.isMatch === true) {
-          // setChoosen(res.data.isMatch);
-          alert("Deu Match!");
+        if (res.data.isMatch === true) {          
+          alert(`Deu Match! Você já pode conversar com ${profile.name}!`);
         }
       })
       .catch((err) => {
-        console.log(err);
+        alert('Não foi possível realizar a ação, erro: ' + err.data);
       });
   };
-
-  // funções dos botões de escolher e não escolher o perfil
-  // const choosenPerson = () => {
-  //   setChoosen(!choosen);
-  //   // setChoosen(true);
-  // };
-
-  // const notChoosenPerson = () => {
-  //   setChoosen(!choosen);
-  //   // setChoosen(false);
-  // };
-
-  // Vassoura - Limpar os matches
-  const clearMatches = () => {
-    axios
-      .put(`${url}/clear`)
-      .then((res) => {
-        setMatches([]);
-        alert("Lista de Matches apagados!");
-      })
-      .catch((err) => {
-        alert("Erro. Tente novamente");
-      });
-  };
-
-
-  const [matches, setMatches] = useState([]); //objeto, por isso []
 
   //mostrar a lista de matches
+  const [matches, setMatches] = useState([]); //objeto, por isso []
+
   useEffect(() => {
     getMatches();
   }, [matches]);// matches aqui para atualizar a página da lista de matches
@@ -103,10 +56,22 @@ export default function App() {
         setMatches(res.data.matches);
       })
       .catch((err) => {
-        console.log(err);
+        alert('Não foi possível realizar a ação, erro: ' + err.data);
       });
   };
 
+  // Vassoura - Limpar os matches
+  const clearMatches = () => {
+    axios
+      .put(`${url}/clear`)
+      .then((res) => {
+        setMatches([]);
+        alert("Lista de Matches apagados!");
+      })
+      .catch((err) => {
+        alert('Não foi possível realizar a ação, erro: ' + err.data);
+      });
+  };
 
   //trocar página
   const [page, setPage] = useState("profile");
@@ -115,6 +80,7 @@ export default function App() {
     setPage(value);
   };
 
+  //renderizar página
   const renderPage = (props) => {
     switch (props) {
       case "profile":
@@ -127,8 +93,6 @@ export default function App() {
               name={profile.name}
               age={profile.age}
               bio={profile.bio}
-              // notChoosenPerson={notChoosenPerson}
-              // choosenPerson={choosenPerson}
               notChoosenPerson={choosePerson}
               choosenPerson={choosePerson}
             />
@@ -152,7 +116,7 @@ export default function App() {
       <GlobalStyle />
       {renderPage(page)}
     </div>);
-}
+};
 
 
 

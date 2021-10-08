@@ -19,8 +19,7 @@ export const MatchesContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  border-radius: 20px;
-  // background-color: #FFFF;  
+  border-radius: 20px;    
 `;
 
 export const HeaderContainer = styled.div`
@@ -28,8 +27,8 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 50px;  
-  margin: 8px;
+  height: 50px;    
+  padding: 8px;
   border-bottom: 1px solid #9c27b0;   
   border-radius: 50px / 0px;    
 `;
@@ -39,25 +38,43 @@ export const ImgLogo = styled.img`
   width: 150px;     
 `
 export const ButtonBackProfile = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   outline-style: none;
   border: none;
   background-color:  transparent;
   cursor: pointer;     
-  border-radius: 50px; 
-  padding: 8px;
+  border-radius: 50px;   
+
+  :hover {
+    background-color: rgba(72, 164, 152, 0.6);
+    color: #ffffff;
+    transform: scale(1.05);
+    transition: all 0.3s ease 0s;
+  }
 `;
 
 export const ButtonClear = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;  
   cursor: pointer;  
   border-radius: 50px;
-  background-color:  transparent;  
-  padding: 8px;
-  
-  img {
-    width: 45px;
+  background-color:  transparent;   
+ 
+  :hover {
+    background-color: rgba(72, 164, 152, 0.6);
+    color: #ffffff;
+    transform: scale(1.05);
+    transition: all 0.3s ease 0s;
   }
 `;
+
+export const ImgButtonClear = styled.img`
+  width: 45px;
+`
 
 export const OutsideMatchListContainer = styled.div`
   display: flex;
@@ -70,16 +87,36 @@ export const MatchListContainer = styled.div`
   display: flex;
   align-items: center;
   margin: 8px;
-  
-  img {
-    width: 50px;
-    height: 50px;    
-    border-radius: 60px;
-  }
+  width: 95%;
+  cursor: pointer;
+  border-radius: 20px;
 
   p {
     color: #f73378;
     margin-left: 20px;
     font-size: 20px;    
   }
+
+  :hover{
+    background-color: rgba(72, 164, 152, 0.9);    
+  }
 `;
+
+export const ImgPhotoList = styled.img`
+  width: 50px;
+  height: 50px;    
+  border-radius: 60px;
+`
+
+export const HeartContainer = styled.h4 `
+  color: #9c27b0;
+  font-size: 20px;
+  padding: 5px;    
+  text-align: center;
+  background-color: #ffff;
+  width: 100%;
+`
+
+export const Photo = styled.img `    
+  width: 100%;    
+`

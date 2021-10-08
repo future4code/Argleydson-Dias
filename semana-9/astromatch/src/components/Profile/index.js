@@ -2,20 +2,23 @@ import React from "react";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ClearIcon from "@material-ui/icons/Clear";
 import PeopleIcon from "@material-ui/icons/People";
+import Logo from "../assets/logoTitle.png";
+import Vassoura from "../assets/vassoura.gif";
 import {
   ButtonClear,
   ButtonContainer,
   ButtonPeople,
+  ChoosenPersonButton,
   Container,
   HeaderContainer,
+  ImgButtonClear,
   ImgLogo,
   InformationContainer,
+  NotChoosenPersonButton,
   ProfileContainer,
   ProfilePhoto,
   ProfilePhotoFundo
 } from "./styles";
-import Logo from "../assets/logoTitle.png"
-import Vassoura from "../assets/vassoura.gif"
 
 export default function Profile(props) {
   return (
@@ -24,11 +27,11 @@ export default function Profile(props) {
 
         <HeaderContainer>
           <ButtonClear onClick={() => { props.clear() }}>
-            <img src={Vassoura} />
+            <ImgButtonClear src={Vassoura} />
           </ButtonClear>
 
           <ImgLogo src={Logo} />
-
+        
           <ButtonPeople onClick={() => { props.page("matches") }}>
             <PeopleIcon color="secondary" fontSize="large" />
           </ButtonPeople>
@@ -47,14 +50,14 @@ export default function Profile(props) {
         </InformationContainer>
 
         <ButtonContainer>
-          <button
+          <NotChoosenPersonButton
             onClick={() => { props.notChoosenPerson(false); }}>
             <ClearIcon color="primary" fontSize="large" />
-          </button>
-          <button
+          </NotChoosenPersonButton>
+          <ChoosenPersonButton
             onClick={() => { props.choosenPerson(true) }}>
             <FavoriteIcon color="secondary" />
-          </button>
+          </ChoosenPersonButton>
         </ButtonContainer>
 
       </ProfileContainer>

@@ -27,8 +27,8 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;  
-  height: 50px;  
-  margin: 8px;
+  height: 50px;    
+  padding: 8px;
   border-bottom: 1px solid lightgrey;
 `;
 
@@ -37,26 +37,46 @@ export const ImgLogo = styled.img`
   width: 150px;     
 `
 export const ButtonPeople = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   outline-style: none;
   border: none;
   cursor: pointer;   
   background-color: #48a498; 
   border-radius: 50px; 
-`;
 
-export const ButtonClear = styled.button`
-  border: none;  
-  cursor: pointer;  
-  border-radius: 50px;
-  background-color: #48a498;
-  
-  img {
-    width: 45px;
+  :hover {
+    background-color: #ffff;
+    color: #ffffff;
+    transform: scale(1.05);
+    transition: all 0.3s ease 0s;
   }
 `;
 
+export const ButtonClear = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;  
+  cursor: pointer;  
+  border-radius: 50px;
+  background-color: #48a498; 
+
+  :hover {
+    background-color: #ffff;
+    color: #ffffff;
+    transform: scale(1.05);
+    transition: all 0.3s ease 0s;
+  }
+`;
+
+export const ImgButtonClear = styled.img`
+  width: 45px;
+`
+
 export const ProfilePhoto = styled.div`
-  width: 300px;  
+  width: 330px;  
   height: 400px;
   background-image: url(${(props) => props.photo});
   background-position: center;
@@ -95,22 +115,45 @@ export const InformationContainer = styled.div`
   p {
       margin-top: 90px;
       background-color: #9c27b0;
-    }
-  }
+    }  
 `;
 
 export const ButtonContainer = styled.div`
   position: absolute;
   display: flex;
-  align-self: flex-end;
+  align-self: flex-end; 
+`;
 
-  button {
-    border-radius: 50px;
-    height: 50px;
-    width: 50px;
-    margin: 45px;
-    align-self: center;
-    margin-bottom: 20px;
-    cursor: pointer;    
+export const NotChoosenPersonButton = styled.button`
+  border-radius: 50px;
+  height: 50px;
+  width: 50px;
+  margin: 45px;
+  align-self: center;
+  margin-bottom: 20px;
+  cursor: pointer; 
+
+  :hover {
+    background-color: #ff0000;
+    color: white;
+    transform: scale(1.05);
+    transition: all 0.3s ease 0s;
   }
 `;
+
+export const ChoosenPersonButton = styled.button`
+  border-radius: 50px;
+  height: 50px;
+  width: 50px;
+  margin: 45px;
+  align-self: center;
+  margin-bottom: 20px;
+  cursor: pointer; 
+
+  :hover {
+    background-color: green;
+    color: #ffffff;
+    transform: scale(1.05);
+    transition: all 0.3s ease 0s;
+  }
+`
