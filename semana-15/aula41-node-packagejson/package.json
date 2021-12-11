@@ -1,10 +1,10 @@
 {
-  "name": "aula41-node-packagejson",
+  "name": "aula41-node",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./index.js"
+    "start": "clear && node ./index.js"
   },
   "author": "Argleydson Leão",
   "license": "ISC"
