@@ -42,12 +42,18 @@ app.get("/users/:type", (req: Request, res: Response) => {
 });
 
 //A) Criando o types.ts
-
+// a. Como você passou os parâmetros de type para a requisição? Por quê?
+//   Via query params, pq é opcional passá-los
 
 //B) usando o UserType, está no types.ts
+// b. Você consegue pensar em um jeito de garantir que apenas `types` válidos sejam utilizados?
+//   Sim, fazendo a validação
 
 
 //EXERCÍCIO 03
+// a. Qual é o tipo de envio de parâmetro que costuma ser utilizado por aqui?
+//   Query params
+
 
 app.get("/users", (req: Request, res: Response) => {
   let codeError: number = 400;
@@ -139,6 +145,73 @@ app.patch("/users", (req: Request, res: Response) => {
     res.status(errorCode).send({ message: error.message });
   }
 });
+
+// 4
+// a. Mude o método do endpoint para `PUT`. O que mudou?
+//   A funcionalidade não mudou porque quem dita o que ocorre é o código no handler, o que muda é a semântica do verbo/método na documentação da API e se ela segue os padrões estabelecidos pela comunidade
+
+// b. Você considera o método `PUT` apropriado para esta transação? Por quê?
+//   Não, porque a convenção dita que novos itens em entidades sejam aplicados pelo POST, enquanto PUT e PATCH sejam utilizados para edição completa e parcial, respectivamente
+app.put("/users/:id", (req: Request, res: Response) => {
+  try {
+    const id = Number(req.params.id)
+
+    if (isNaN(id)) {
+      throw new Error("Invalid id")
+    }
+
+    users.forEach(user => {
+      if (user.id === id) {
+        user.name += "-ALTERADO"
+        return res.status(200).end()
+      }
+    })
+    res.status(204).send("User not found")
+  } catch (err: any) {
+    res.status(400).send(err.message)
+  }
+})
+
+app.patch("/users/:id", (req: Request, res: Response) => {
+  try {
+    const id = Number(req.params.id)
+
+    if (isNaN(id)) {
+      throw new Error("Invalid id")
+    }
+
+    users.forEach(user => {
+      if (user.id === id) {
+        user.name += "-REALTERADO"
+        return res.status(200).end()
+      }
+    })
+    res.status(204).send("User not found")
+  } catch (err: any) {
+    res.status(400).send(err.message)
+  }
+})
+
+app.delete("/users/:id", (req: Request, res: Response) => {
+  try {
+    const id = Number(req.params.id)
+
+    if (isNaN(id)) {
+      throw new Error("Invalid id")
+    }
+
+    for (let i = 0; i < users.length; i++) {
+      if (users[i].id === id) {
+        users.splice(i, 1)
+        return res.status(200).end()
+      }
+    }
+
+    res.status(204).send("User not found")
+  } catch (err: any) {
+    res.status(400).send(err.message)
+  }
+})
 
 // Para testar se o servidor está tratando os endpoints corretamente
 app.get("/ping", (req: Request, res: Response) => {
