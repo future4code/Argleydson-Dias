@@ -1,52 +1,5 @@
 # WFS15-S16: To Do List
 
-## Instruções:
-
-Nós criamos um banco de dados específico para cada um de vocês usar durante o Módulo de Backend. O host é `35.226.146.116` na porta `3306`. Os usuários, senhas e nomes do banco de dados foram enviados individualmente para vocês no slack. 
-
-Por serem informações sensíveis n**ão compartilhe as informações de senhas nomes e banco com ninguém!** 
-
-**Não faça o upload destas informações em repositórios do Github que sejam públicos, ou seja, não suba no GitHub que vocês tem conosco. Repetindo: não suba.**
-
-**Configurando o Knex:**
-
-Lembre-se de instalar as dependências:
-
-```bash
-npm install knex mysql --save-dev @types/knex
-```
-
-Crie uma variável para utilizar como conexão e configure o `dotenv`, criando o arquivo `.env` (adicione-o também no `.gitignore`)
-
-```tsx
-import knex from "knex";
-import dotenv from "dotenv";
-
-dotenv.config();
-
-const connection = knex({
-  client: "mysql",
-  connection: {
-    host: process.env.DB_HOST,
-    port: Number(process.env.DB_PORT || "3306"),
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_SCHEMA,
-  },
-});
-```
-
-Lembre-se que você pode utilizar o template fornecido se preferir : 
-
-[knex-express-template.zip](WFS15-S16%20To%20Do%20List%20181f03d9ad1b4c889aa160e8bfb2e05e/knex-express-template.zip)
-
-<aside>
-💡 dúvidas sobre a estrutura de um projeto backend? Tem um atalho aqui para o [Estruturando-o-backend-semana-16](https://www.notion.so/Estruturando-o-backend-semana-16-780662c3f6e4408687e03136ea3d3081)
-
-</aside>
-
----
-
 ## Exercício da Semana:
 
 Olá, tudo bem? O exercício de hoje vai lidar com um tema que vocês já estão acostumados. Já pedimos para vocês fazerem só o Front, já pedimos para fazerem o Front integrado, já até pedimos um projeto usando somente Node para isso: uma To Do List. Dessa vez, vai ser um pouquinho diferente, vocês vão fazer o backend dela.
@@ -637,9 +590,8 @@ Dados esses requisitos do sistema, você deve modelar todo o banco de dados (usa
     }
     ```
     
-
+_______________________________________
 **Começar o projeto**
-
 ```powershell
 $ npm init -y
 $ tsc --init
@@ -648,10 +600,10 @@ $ mkdir src build
 $ cd src
 $ touch index.ts
 $ mkdir endpoints data
+$ cd ..
 ```
 
-tsconfig.json
-
+**tsconfig.json**
 ```json
 {
    "compilerOptions": {
@@ -669,7 +621,7 @@ tsconfig.json
 }
 ```
 
-I**nstalar dependências**
+**Instalar dependências**
 
 express: pra pode conversar pelo protocolo HTTP com o front
 
@@ -683,22 +635,19 @@ dotenv: para esconder a senha do banco (.env)
 $ npm i express knex mysql dotenv
 ```
 
-I**nstalar dependências de desenvolvimento**
-
+**Instalar dependências de desenvolvimento**
 ```json
 $ npm i @types/express @types/node typescript ts-node-dev -D
 ```
 
-editar o arquivo .gitignore
-
+**editar o arquivo .gitignore**
 ```json
 node_modules
 build
 .env
 ```
 
-editar o arquivo package.json
-
+**editar o arquivo package.json**
 ```json
 "scripts": {
       "start": "tsc && node build/index.js", 
@@ -707,11 +656,37 @@ editar o arquivo package.json
   },
 ```
 
-“editar o arquivo .env
-
+**editar o arquivo .env**
 ```json
-DB_HOST = 35.226.146.116
-DB_USER = argleydson-leao
-DB_PASSWORD = FRF$dGROEQ!7@fPbv4nc
-DB_SCHEMA = maryam-argleydson-leao
+DB_HOST = 
+DB_USER = 
+DB_PASSWORD = 
+DB_SCHEMA =
+```
+
+**Editar o index.tx**
+```typescript
+import express from "express"
+import knex from "knex"
+import dotenv from "dotenv"
+
+dotenv.config()
+
+export const connection = knex({
+  client: "mysql",
+  connection: {
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    port: 3306
+  }
+})
+
+const app = express()
+app.use(express.json())
+
+app.listen(3003, ()=>{
+  console.log("Servidor rodando na porta 3003")
+})
 ```
