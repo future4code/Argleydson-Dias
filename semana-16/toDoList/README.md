@@ -14,7 +14,7 @@ Dados esses requisitos do sistema, você deve modelar todo o banco de dados (usa
 
 - **1. Criar usuário**
     
-    **Método:** POST
+    **Método:** PUT
     **Path:** `/user`
     
     **Body:**
@@ -54,7 +54,7 @@ Dados esses requisitos do sistema, você deve modelar todo o banco de dados (usa
     
 - **3. Editar usuário**
     
-    **Método:** PUT
+    **Método:** POST
     **Path:** `/user/edit/:id`
     
     **Path Param**: é o id do usuário
@@ -75,7 +75,7 @@ Dados esses requisitos do sistema, você deve modelar todo o banco de dados (usa
     
 - **4. Criar tarefa**
     
-    **Método:** POST
+    **Método:** PUT
     **Path:** `/task`
     
     **Body:**
@@ -463,8 +463,8 @@ Dados esses requisitos do sistema, você deve modelar todo o banco de dados (usa
         Essa é bem simples já que deverá guardar 4 imformações: id, name, nickname e email.
         
         ```sql
-        CREATE TABLE TodoListUser (
-        		id VARCHAR(255) PRIMARY KEY, 
+        CREATE TABLE ToDoListUser (
+        	id VARCHAR(255) PRIMARY KEY, 
             name VARCHAR(255) NULL, 
             nickname VARCHAR(255) UNIQUE NOT NULL, 
             email VARCHAR(255) UNIQUE NOT NULL
@@ -480,14 +480,14 @@ Dados esses requisitos do sistema, você deve modelar todo o banco de dados (usa
         Esse tipo de relação pode ser representada de uma forma muito simples: criando uma propriedade `user_id` na tabela de Tarefas (`N`) que é a chave estrangeira que a relacione com um único usuário (`1`) .
         
         ```sql
-        CREATE TABLE TodoListTask (
-        		id VARCHAR(255) PRIMARY KEY, 
+        CREATE TABLE ToDoListTask (
+        	id VARCHAR(255) PRIMARY KEY, 
             title VARCHAR(255) NOT NULL, 
             description TEXT NOT NULL, 
             status VARCHAR(255) NOT NULL DEFAULT "to_do",
             limit_date DATE NOT NULL,
             creator_user_id varchar(255) NOT NULL,
-            FOREIGN KEY (creator_user_id) REFERENCES TodoListUser(id)
+            FOREIGN KEY (creator_user_id) REFERENCES ToDoListUser(id)
         );
         ```
         
@@ -502,11 +502,11 @@ Dados esses requisitos do sistema, você deve modelar todo o banco de dados (usa
         Esse tipo de relação pode ser representada criando uma tabela intermediária que irá guardar cada um dos pares: usuário + tarefa. Chamaremos essa tabela de: `TodoListResponsibleUserTaskRelation`, que terá duas colunas: uma para o id da tarefa (`task_id`) e outra para o usuário (`responsible_user_id`) 
         
         ```sql
-        CREATE TABLE TodoListResponsibleUserTaskRelation (
-        		task_id VARCHAR(255),
+        CREATE TABLE ToDoListResponsibleUserTaskRelation (
+        	task_id VARCHAR(255),
             responsible_user_id VARCHAR(255),
             FOREIGN KEY (task_id) REFERENCES TodoListTask(id),
-            FOREIGN KEY (responsible_user_id) REFERENCES TodoListUser(id)
+            FOREIGN KEY (responsible_user_id) REFERENCES ToDoListUser(id)
         );
         ```
         
@@ -689,4 +689,32 @@ app.use(express.json())
 app.listen(3003, ()=>{
   console.log("Servidor rodando na porta 3003")
 })
+```
+
+**criar TABELAS no MySql**
+```sql
+CREATE TABLE ToDoListUser (
+	id VARCHAR(255) PRIMARY KEY, 
+    name VARCHAR(255) NULL, 
+    nickname VARCHAR(255) UNIQUE NOT NULL, 
+    email VARCHAR(255) UNIQUE NOT NULL
+);
+
+CREATE TABLE ToDoListTask (
+	id VARCHAR(255) PRIMARY KEY, 
+    title VARCHAR(255) NOT NULL, 
+    description TEXT NOT NULL, 
+    status VARCHAR(255) NOT NULL DEFAULT "to_do",
+    limit_date DATE NOT NULL,
+    creator_user_id varchar(255) NOT NULL,
+    FOREIGN KEY (creator_user_id) REFERENCES ToDoListUser(id)
+);
+
+CREATE TABLE ToDoListResponsibleUserTaskRelation (
+	task_id VARCHAR(255),
+    responsible_user_id VARCHAR(255),
+    PRIMARY KEY (task_id, responsible_user_id),
+    FOREIGN KEY (task_id) REFERENCES ToDoListTask(id),
+    FOREIGN KEY (responsible_user_id) REFERENCES ToDoListUser(id)
+);
 ```

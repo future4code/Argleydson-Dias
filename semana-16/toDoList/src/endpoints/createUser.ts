@@ -20,7 +20,7 @@ export default async function createUser(
     // criar um id. usar time stemp pq ele dá o tempo em milisegundos e dificilmente alguém vai criar um usuário ao mesmo tempo. Add um número aleatório só pra aumentar a probablidade de ser um id único
     const id: string = Date.now() + Math.random().toString()
 
-    // consulta o banco de dados
+    // consulta o banco de dados, importante usar o await para consultar o banco
     await insertUser(
       id,
       req.body.name, 
@@ -31,11 +31,11 @@ export default async function createUser(
     // validar as saídas do banco
       //  não teve saídas 
 
-    // responder a requisição
+    // responder a requisição utilizando ".send" ou ".end"
     res
         .status(200)
         .send('Usuário criado com sucesso!')
-        
+
   } catch (error:any) {
     res.status(400).send({
       message: error.message || error.sqlMessage

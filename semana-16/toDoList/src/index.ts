@@ -19,6 +19,7 @@ export const connection = knex({
 const app = express()
 app.use(express.json()) //transforma o boddy da resposta pra um formato de json e poder exibir no navegador
 
+// endpoint para criar usuário
 app.put("/user", createUser)
 
 
