@@ -15,6 +15,8 @@ export default async function createUser(
       res
         .status(400)
         .send('Preencha os campos "name", "nickname" e email')
+
+        return // pra para o processo e não correr o risco de criar um usr faltando algo
     }
 
     // criar um id. usar time stemp pq ele dá o tempo em milisegundos e dificilmente alguém vai criar um usuário ao mesmo tempo. Add um número aleatório só pra aumentar a probablidade de ser um id único
