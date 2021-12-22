@@ -4,6 +4,8 @@ import dotenv from "dotenv"
 import createUser from "./endpoints/createUser"
 import getUserById from "./endpoints/getUserById"
 import editUser from "./endpoints/editUser"
+import createTask from "./endpoints/createTask"
+import { getTaskById } from "./endpoints/getTaskById"
 
 dotenv.config()
 
@@ -30,6 +32,12 @@ app.get('/user/:id', getUserById)
 
 // endpoint para editar usuário pelo id
 app.post('/user/edit/:id', editUser)
+
+// endpoint para criar tasks
+app.put('/task', createTask)
+
+// endpoint para pegar tarefa por ID
+app.get("/task/:id", getTaskById);
 
 
 app.listen(3003, ()=>{
